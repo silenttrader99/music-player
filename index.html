@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Player</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/98b9683870.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="background">
+      <div class="container">
+        <nav>
+          <div class="circle"><i class="fa-solid fa-angle-left"></i></div>
+          <div class="circle"><i class="fa-solid fa-bars"></i></div>
+        </nav>
+        <div class="main">
+          <div class="thumbnail"><img src="media/thumbnail.png" /></div>
+          <h1>Go!</h1>
+          <h2>NEFFEX</h2>
+        </div>
+        <audio controls id="song">
+          <source src="media/Go-NEFFEX.mp3" type="audio/mpeg" />
+        </audio>
+        <input type="range" value="0" id="grab" />
+        <div class="controls">
+          <div><i class="fa-solid fa-backward"></i></div>
+          <div onclick="playPause()">
+            <i class="fa-solid fa-play" id="control"></i>
+          </div>
+          <div><i class="fa-solid fa-forward"></i></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const grab = document.getElementById("grab");
+      const song = document.getElementById("song");
+      const control = document.getElementById("control");
+
+      song.onloadedmetadata = () => {
+        grab.max = song.duration;
+        grab.value = song.currentTime;
+      };
+      function playPause() {
+        if (control.classList.contains("fa-play")) {
+          song.play();
+          control.classList.replace("fa-play", "fa-pause");
+        } else if (control.classList.contains("fa-pause")) {
+          song.pause();
+          control.classList.replace("fa-pause", "fa-play");
+        }
+      }
+      if (song.play()) {
+        setInterval(() => {
+          grab.value = song.currentTime;
+        }, 1000); //set interval higher than 500 so you can grab the slider
+      }
+      grab.onchange = function () {
+        song.play();
+        song.currentTime = grab.value;
+        control.classList.replace("fa-play", "fa-pause");
+      };
+    </script>
+  </body>
+</html>

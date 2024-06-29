@@ -1,0 +1,101 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+.background {
+  background-color: rgb(70, 69, 69);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  flex-wrap: wrap;
+}
+.container {
+  background-color: rgb(241, 214, 219);
+  width: 400px;
+  padding: 25px 35px;
+  text-align: center;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+nav .circle {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background: white;
+  color: #f53192;
+  box-shadow: 0 5px 10px rgba(255, 26, 26, 0.22);
+  line-height: 40px; /*center the icon*/
+}
+.main {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.thumbnail img {
+  width: 220px;
+  border-radius: 50%;
+  border: 8px solid white;
+  box-shadow: 0 10px 60px rgba(255, 26, 26, 0.22);
+}
+.main h1 {
+  font-size: 30px;
+  font-weight: 400;
+  color: #333;
+  margin-top: 20px;
+}
+.main h2 {
+  font-size: 15px;
+  color: #333;
+}
+#grab {
+  -webkit-appearance: none; /*remove default*/
+  width: 100%;
+  height: 6px;
+  background: #f53192;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 40px 0;
+}
+#grab::-webkit-slider-thumb {
+  -webkit-appearance: none; /*remove default*/
+  background: #f53192;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 8px solid white;
+  box-shadow: 0 5px 5px rgba(255, 26, 26, 0.22);
+}
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+.controls div {
+  margin: 20px;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  background: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #f53192;
+  box-shadow: 0 10px 20px rgba(255, 26, 26, 0.22);
+}
+.controls div:nth-child(2) {
+  transform: scale(1.3);
+  background: #f53192;
+  color: white;
+}
+#song {
+  display: none;
+}
